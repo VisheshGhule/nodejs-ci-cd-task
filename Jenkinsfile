@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'node:18-alpine' }
+    }
 
     stages {
         stage('Build') {
@@ -18,12 +20,11 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Deployment stage - you can customize this'
+                echo 'Building Docker image...'
                 sh 'docker build -t visheshghule/nodejs-demo-app:latest .'
-                // Uncomment the next line if DockerHub login is already configured on Jenkins
+                // Optional: Push if Docker is configured in Jenkins
                 // sh 'docker push visheshghule/nodejs-demo-app:latest'
             }
         }
     }
 }
-
