@@ -1,4 +1,4 @@
-# 🚀Task 1 - Node.js CI/CD Pipeline with GitHub Actions & DockerHub
+# 🚀 Node.js CI/CD Pipeline with GitHub Actions & DockerHub
 
 This project was created for the DevOps Internship Task:  
 **Automate Code Deployment Using CI/CD Pipeline (GitHub Actions)**
