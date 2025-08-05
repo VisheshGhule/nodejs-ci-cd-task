@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        docker { image 'node:18-alpine' }
-    }
+    agent any
 
     stages {
         stage('Build') {
@@ -14,16 +12,14 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh 'npm test || echo "No tests defined, skipping..."'
+                sh 'npm test || true'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Building Docker image...'
-                sh 'docker build -t visheshghule/nodejs-demo-app:latest .'
-                // Optional: Push if Docker is configured in Jenkins
-                // sh 'docker push visheshghule/nodejs-demo-app:latest'
+                echo 'Deploying app...'
+                sh 'echo Deploy step goes here'
             }
         }
     }
